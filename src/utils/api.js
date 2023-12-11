@@ -1,8 +1,13 @@
 import axios from "axios";
 
-const getArticles = () => {
-    return axios.get("https://news-api-3trz.onrender.com/api/articles")
+const api = axios.create({baseURL:"https://news-api-3trz.onrender.com/api"})
+
+export const getArticles = () => {
+    return api.get("/articles")
     .then(res => res.data)
 }
- 
-export default getArticles;
+
+export const getSingleArticle = (article_id) => {
+    return api.get(`articles/${article_id}`)
+    .then(res => res.data)
+}

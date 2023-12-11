@@ -19,7 +19,13 @@ ul {
 }
 
 img {
-  width:180px; 
- 
+  width:180px;  
 }
 
+.single-article {
+  border: 2px dashed rgb(236, 25, 1);
+}
+
+#single-article-img {
+  width: 50%;
+}
