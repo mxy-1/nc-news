@@ -34,3 +34,7 @@ img {
 #single-article-img {
   width: 50%;
 }
+
+.single-comment {
+  border: 2px dashed lightcoral;
+}
