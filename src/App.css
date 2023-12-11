@@ -15,9 +15,11 @@ ul {
 
 .article-card{
   text-align: center;
-  border: 2px solid orange;
+  border: 2px dotted orange;
 }
 
 img {
   width:180px; 
+ 
 }
+
