@@ -29,10 +29,10 @@ const SingleArticle = () => {
         <>
             <div className="single-article">
             {loadingArticle && <h2>loading article...</h2>}
-                <h2>{title}</h2>
+                <h2 className="single-title">{title}</h2>
                 <img id="single-article-img" src={article_img_url} />
-                <h3>by {author}</h3>
-                <p>{body}</p>
+                <h3 className="single-author">by {author}</h3>
+                <p className="article-body">{body}</p>
             </div>
 
             <div className="comments-wrapper">
