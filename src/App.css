@@ -1,5 +1,6 @@
 #root {
   margin: 0 auto;
+  padding: 4% 8%;
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
 }
@@ -16,10 +17,11 @@ ul {
 .article-card{
   text-align: center;
   border: 2px dotted orange;
+  align-items: center;
 }
 
 img {
-  width:180px;  
+  width: 80%;
 }
 
 .single-article {
@@ -37,4 +39,38 @@ img {
 
 .single-comment {
   border: 2px dashed lightcoral;
+}
+
+/* test? */
+/* .img-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.article-card-img {
+  float: left;
+} */
+
+.article-card-title {
+  width: 80%;
+  text-align: left;
+  align-items: center;
+  display: inline-block;
+  margin: 0;
+}
+
+.article-author {
+  text-align: left;
+  width: 80%;
+  font-size: 12px;
+  display: inline-block;
+  margin: 0;
+}
+
+.article-date {
+  margin: 0;
+  font-size: 12px;
+  text-align: right;
+  display: inline-block;
+  width: 80%;
 }
