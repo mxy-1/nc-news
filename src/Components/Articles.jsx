@@ -20,7 +20,7 @@ const Articles = () => {
                 {articles.map((article, i) => {
                     return (
                         <div className="articles" key={article.article_id}>
-                            <Link to={`/articles/${article.article_id}`}>
+                            <Link className="single-article-link" to={`/articles/${article.article_id}`}>
                                 <ArticleCard article={articles[i]} />
                             </Link>
                         </div>
