@@ -1,6 +1,23 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+  border: 2px dashed lightskyblue;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.article-card{
+  text-align: center;
+  border: 2px solid orange;
+}
+
+img {
+  width:180px; 
 }
