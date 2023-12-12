@@ -62,7 +62,7 @@ const SingleArticle = () => {
                 <h3 className="single-author">by {author}</h3>
                 <p className="article-body">{body}</p>
                 <div>
-                    {voteError ? <p>{voteError}</p> : null}
+                    {voteError && <p>{voteError}</p>}
                     <button onClick={handleClickUp}>⇧</button>
                     <p className="article-votes">{articleVotes} votes</p>
                     <button onClick={handleClickDown}>⇩</button>
