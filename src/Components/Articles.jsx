@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {getArticles} from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import {Link} from "react-router-dom" 
@@ -7,11 +7,14 @@ const Articles = () => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true)
 
-    getArticles()
+    useEffect(() => {
+        getArticles()
         .then(({ articles }) => {
             setArticles(articles)
             setLoading(false)
         })
+    }, []);
+    
 
     return (
         <div>

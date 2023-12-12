@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { getArticleComments, getSingleArticle } from "../utils/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SingleComment from "./SingleComment";
 
 const SingleArticle = () => {
@@ -12,18 +12,24 @@ const SingleArticle = () => {
     const { article_id } = useParams()
     const { article_id: id, article_img_url, author, body, comment_count, created_at, title, topic, votes } = article 
 
-    getSingleArticle(article_id)
+    useEffect(() => {
+        getSingleArticle(article_id)
         .then(({ article }) => {
             setArticle(article)
             setLoadingArticle(false)
         })
-
-    getArticleComments(article_id)
+    }, []);
+    
+    useEffect(() => {
+        getArticleComments(article_id)
         .then(({comments}) => {
             setComments(comments)
             setLoadingComments(false)
         })
         .catch(err => console.log(err))
+    }, []);
+
+    
 
     return (
         <>
