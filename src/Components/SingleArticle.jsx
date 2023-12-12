@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { getArticleComments, getSingleArticle, patchArticleVotes } from "../utils/api";
+import { getArticleComments, getSingleArticle, patchArticleVotes, postComment } from "../utils/api";
 import { useEffect, useState } from "react";
 import SingleComment from "./SingleComment";
 
@@ -11,6 +11,9 @@ const SingleArticle = () => {
 
     const [articleVotes, setArticleVotes] = useState(null);
     const [voteError, setVoteError] = useState(null);
+
+    const [inputBody, setInputBody] = useState("");
+    const [inputUsername, setInputUsername] = useState("");
    
     const { article_id } = useParams()
     const { article_id: id, article_img_url, author, body, comment_count, created_at, title, topic, votes } = article 
@@ -22,7 +25,7 @@ const SingleArticle = () => {
             setLoadingArticle(false)
             setArticleVotes(article.votes)
         })
-    }, []);
+    }, [comments]);
     
     useEffect(() => {
         getArticleComments(article_id)
@@ -31,7 +34,7 @@ const SingleArticle = () => {
             setLoadingComments(false)
         })
         .catch(err => console.log(err))
-    }, []);
+    }, [comments]);
 
     const handleClickUp = () => {
         setArticleVotes(articleVotes => articleVotes + 1)
@@ -53,6 +56,17 @@ const SingleArticle = () => {
         })
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        postComment(article_id, inputUsername, inputBody)
+        .then(()=> {
+            console.log("comment added")
+            setInputBody("")
+            setInputUsername("")
+        })
+        .catch(err => console.log(err))
+    }
+
     return (
         <>
             <div className="single-article">
@@ -72,6 +86,13 @@ const SingleArticle = () => {
             <div className="comments-wrapper">
                 {comment_count === 1 ? <h3>{comment_count} Comment</h3> : <h3>{comment_count} Comments</h3>}
                 {loadingComments && <h2>loading comments...</h2>}
+
+                <form onSubmit={e => handleSubmit(e)}>
+                    <input type="text" placeholder="username..." value={inputUsername} onChange={e => setInputUsername(e.target.value)} required/><br />
+                    <textarea name="comment" id="comment" cols="50" rows="4" placeholder="comment..." value={inputBody} onChange={e => setInputBody(e.target.value)} required></textarea><br />
+                    <input type="submit" value="add comment"/>
+                </form>
+
                 <ul>
                     {comments.map(comment => {
                         return <SingleComment comment={comment} key={comment.comment_id}/>
