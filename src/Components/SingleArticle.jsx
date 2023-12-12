@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { getArticleComments, getSingleArticle } from "../utils/api";
+import { getArticleComments, getSingleArticle, patchArticleVotes } from "../utils/api";
 import { useEffect, useState } from "react";
 import SingleComment from "./SingleComment";
 
@@ -9,6 +9,9 @@ const SingleArticle = () => {
     const [comments, setComments] = useState([]);
     const [loadingComments, setLoadingComments] = useState(true);
 
+    const [articleVotes, setArticleVotes] = useState(null);
+    const [voteError, setVoteError] = useState(null);
+   
     const { article_id } = useParams()
     const { article_id: id, article_img_url, author, body, comment_count, created_at, title, topic, votes } = article 
 
@@ -17,6 +20,7 @@ const SingleArticle = () => {
         .then(({ article }) => {
             setArticle(article)
             setLoadingArticle(false)
+            setArticleVotes(article.votes)
         })
     }, []);
     
@@ -29,7 +33,25 @@ const SingleArticle = () => {
         .catch(err => console.log(err))
     }, []);
 
-    
+    const handleClickUp = () => {
+        setArticleVotes(articleVotes => articleVotes + 1)
+        patchArticleVotes(article_id, 1)
+        .then(() => setVoteError(null))
+        .catch((err) => {
+            setArticleVotes(articleVotes => articleVotes -1)
+            setVoteError("something went wrong, please try again")
+        })
+    }
+
+    const handleClickDown = () => {
+        setArticleVotes(articleVotes => articleVotes - 1)
+        patchArticleVotes(article_id, -1)
+        .then(() => setVoteError(null))
+        .catch((err) => {
+            setArticleVotes(articleVotes => articleVotes + 1)
+            setVoteError("something went wrong, please try again")
+        })
+    }
 
     return (
         <>
@@ -39,6 +61,12 @@ const SingleArticle = () => {
                 <img id="single-article-img" src={article_img_url} />
                 <h3 className="single-author">by {author}</h3>
                 <p className="article-body">{body}</p>
+                <div>
+                    {voteError ? <p>{voteError}</p> : null}
+                    <button onClick={handleClickUp}>⇧</button>
+                    <p className="article-votes">{articleVotes} votes</p>
+                    <button onClick={handleClickDown}>⇩</button>
+                </div>
             </div>
 
             <div className="comments-wrapper">
