@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { postComment } from "../utils/api";
 
-const AddComment = ({setPostingComment, article_id}) => {
+const AddComment = ({ setPostingComment, article_id, comments, setComments }) => {
     const [inputBody, setInputBody] = useState("");
     const [inputUsername, setInputUsername] = useState("");
 
@@ -9,6 +9,9 @@ const AddComment = ({setPostingComment, article_id}) => {
         e.preventDefault()
         if (inputBody.length < 5) return alert("comment should be at least 5 characters")
         setPostingComment(true)
+
+        setComments(comments => [{ author: inputUsername, body: inputBody, created_at: (new Date().toISOString()), comment_id: new Date() }, ...comments])
+
         postComment(article_id, inputUsername, inputBody)
             .then(() => {
                 setPostingComment(false)
