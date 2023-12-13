@@ -39,3 +39,7 @@ export const getArticleByTopic = (topic) => {
     return api.get(`/articles?topic=${topic}`)
     .then(res => res.data)
 }
+
+export const deleteComment = (comment_id) => {
+    return api.delete(`/comments/${comment_id}`)
+}
