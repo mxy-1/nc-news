@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
 
-
-const Sort = ({ setArticles }) => {
+const Sort = ({ setArticles, selectedTopic }) => {
     const [sort, setSort] = useState("created_at");
     const [order, setOrder] = useState("desc");
 
@@ -15,7 +14,7 @@ const Sort = ({ setArticles }) => {
     }
 
     useEffect(() => {
-        getArticles(sort, order)
+        getArticles(sort, order, selectedTopic)
         .then(({ articles }) => {
             setArticles(articles)
         })

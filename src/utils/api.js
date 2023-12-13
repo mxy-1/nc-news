@@ -2,8 +2,11 @@ import axios from "axios";
 
 const api = axios.create({baseURL:"https://news-api-3trz.onrender.com/api"})
 
-export const getArticles = (sort="created_at", order="desc") => {
-    const path = `/articles?sort_by=${sort}&order=${order}`
+export const getArticles = (sort="created_at", order="desc", topic) => {
+    let path = `/articles?sort_by=${sort}&order=${order}`
+    if (topic) {
+        path += `&topic=${topic}`
+    }
     return api.get(path)
     .then(res => res.data)
 }
@@ -36,17 +39,6 @@ export const getTopics = () => {
     .then(res => res.data)
 }
 
-export const getArticleByTopic = (topic) => {
-    return api.get(`/articles?topic=${topic}`)
-    .then(res => res.data)
-}
-
 export const deleteComment = (comment_id) => {
     return api.delete(`/comments/${comment_id}`)
 }
-
-// export const getArticlesSort = (sort="created_at", order="desc") => {
-//     const path = `/articles?sort_by=${sort}&order=${order}`
-//     return api.get(path)
-//     .then(res => res.data)
-// }
