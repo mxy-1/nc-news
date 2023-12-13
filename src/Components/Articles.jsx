@@ -3,8 +3,7 @@ import {getArticles} from "../utils/api";
 import ArticleCard from "./ArticleCard";
 import {Link} from "react-router-dom" 
 
-const Articles = () => {
-    const [articles, setArticles] = useState([]);
+const Articles = ({articles, setArticles}) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-import convertDate from "../utils/date";
+import convertDate from "../../utils/date";
 
 const SingleComment = ({comment}) => {
     const {comment_id, votes, created_at, author, body, article_id} = comment

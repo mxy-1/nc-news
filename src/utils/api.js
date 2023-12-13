@@ -29,3 +29,13 @@ export const postComment = (article_id, username, body) => {
         body: body
     })
 }
+
+export const getTopics = () => {
+    return api.get(`/topics`)
+    .then(res => res.data)
+}
+
+export const getArticleByTopic = (topic) => {
+    return api.get(`/articles?topic=${topic}`)
+    .then(res => res.data)
+}
