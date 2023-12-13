@@ -22,3 +22,10 @@ export const patchArticleVotes = (article_id, num) => {
         inc_votes: num
     })
 }
+
+export const postComment = (article_id, username, body) => {
+    return api.post(`/articles/${article_id}/comments`, {
+        username: username,
+        body: body
+    })
+}
