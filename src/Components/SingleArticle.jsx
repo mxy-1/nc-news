@@ -12,6 +12,7 @@ const SingleArticle = () => {
     const [loadingComments, setLoadingComments] = useState(true);
     const [postingComment, setPostingComment] = useState(false);
     const [articleVotes, setArticleVotes] = useState(null);
+    
 
     const { article_id } = useParams()
 
@@ -48,7 +49,7 @@ const SingleArticle = () => {
                 <AddComment setPostingComment={setPostingComment} article_id={article_id} comments={comments} setComments={setComments}/>
                 {postingComment && <p>posting comment...</p>}
 
-                <Comments comments={comments} />
+                <Comments comments={comments} setComments={setComments}/>
             </div>
         </>
     );
