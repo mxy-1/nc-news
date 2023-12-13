@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { getArticleComments, getSingleArticle } from "../utils/api";
+import { getArticleComments, getSingleArticle } from "../../utils/api";
 import { useEffect, useState } from "react";
 import Comments from "./Comments";
 import AddComment from "./AddComment";
