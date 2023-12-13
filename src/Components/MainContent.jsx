@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Articles from "./Articles";
 import NavBar from "./NavBar";
+import Sort from "./Sort";
 
 const MainContent = () => {
     const [topics, setTopics] = useState([]);
@@ -8,11 +9,12 @@ const MainContent = () => {
 
     return (
         <>
-        <NavBar topics={topics} setTopics={setTopics} setArticles={setArticles} />
-        <Articles articles={articles} setArticles={setArticles}/>
+            <NavBar topics={topics} setTopics={setTopics} setArticles={setArticles} />
+            <Sort setArticles={setArticles} />
+            <Articles articles={articles} setArticles={setArticles} />
         </>
-        
+
     );
 }
- 
+
 export default MainContent;
