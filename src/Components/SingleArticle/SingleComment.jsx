@@ -1,6 +1,7 @@
 import { useState } from "react";
-import convertDate from "../utils/date";
-import { deleteComment } from "../utils/api";
+import { deleteComment } from "../../utils/api";
+import convertDate from "../../utils/date";
+
 
 const SingleComment = ({ comment, setComments, i, comments}) => {
     const { comment_id, votes, created_at, author, body, article_id } = comment
