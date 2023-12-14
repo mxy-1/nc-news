@@ -48,7 +48,7 @@ const SingleArticle = () => {
             <div className="single-article">
                 {loadingArticle && <h2>loading article...</h2>}
                 {status && <h2>{status}: {errorMessage}</h2>}
-                <DisplaySingleArticle article_id={article_id} article={article} setArticleVotes={setArticleVotes} articleVotes={articleVotes} />
+                <DisplaySingleArticle article_id={article_id} article={article} setArticleVotes={setArticleVotes} articleVotes={articleVotes} errorMessage={errorMessage}/>
             </div>
 
             <div className="comments-wrapper">

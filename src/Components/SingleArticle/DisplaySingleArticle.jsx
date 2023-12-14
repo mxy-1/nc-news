@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { patchArticleVotes } from "../../utils/api";
 
-const DisplaySingleArticle = ({ article_id, article, setArticleVotes, articleVotes }) => {
+const DisplaySingleArticle = ({ article_id, article, setArticleVotes, articleVotes, errorMessage }) => {
 
     const { article_id: id, article_img_url, author, body, comment_count, created_at, title, topic, votes } = article
 
@@ -36,9 +36,10 @@ const DisplaySingleArticle = ({ article_id, article, setArticleVotes, articleVot
 
             <div>
                 {voteError && <p>{voteError}</p>}
-                <button onClick={handleClickUp}>⇧</button>
+        
+                {!errorMessage && <button onClick={handleClickUp}>⇧</button>}
                 <p className="article-votes">{articleVotes} votes</p>
-                <button onClick={handleClickDown}>⇩</button>
+                {!errorMessage && <button onClick={handleClickDown}>⇩</button>}
             </div>
         </>
 
