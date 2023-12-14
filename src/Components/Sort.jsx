@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { getArticles } from "../utils/api";
 
-const Sort = ({ setArticles, selectedTopic }) => {
-    const [sort, setSort] = useState("created_at");
-    const [order, setOrder] = useState("desc");
+const Sort = ({ setArticles, selectedTopic, setSort, setOrder, sort, order}) => {
 
     const handleChange = (e) => {
         setSort(e.target.value)

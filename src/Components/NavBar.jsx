@@ -2,7 +2,7 @@ import { useEffect, useState} from "react";
 import { getArticles, getTopics } from "../utils/api";
 import { Link } from "react-router-dom";
 
-const NavBar = ({setArticles, setSelectedTopic, selectedTopic}) => {
+const NavBar = ({setArticles, setSelectedTopic, selectedTopic, sort, order}) => {
     const [topics, setTopics] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -14,7 +14,7 @@ const NavBar = ({setArticles, setSelectedTopic, selectedTopic}) => {
     }, [topics])
 
     useEffect(() => {
-        getArticles("created_at", "desc", selectedTopic)
+        getArticles(sort, order, selectedTopic)
         .then(({articles}) => {
             setArticles(articles)
             setLoading(false)
