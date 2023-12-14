@@ -12,7 +12,9 @@ const SingleArticle = () => {
     const [loadingComments, setLoadingComments] = useState(true);
     const [postingComment, setPostingComment] = useState(false);
     const [articleVotes, setArticleVotes] = useState(null);
-    
+    const [errorMessage, setErrorMessage] = useState("");
+    const [status, setStatus] = useState("");
+
 
     const { article_id } = useParams()
 
@@ -25,6 +27,12 @@ const SingleArticle = () => {
                 setLoadingArticle(false)
                 setArticleVotes(article.votes)
             })
+            .catch(({ response }) => {
+                setStatus(response.request.status)
+                setErrorMessage(response.data.msg)
+                setLoadingComments(false)
+                setLoadingArticle(false)
+            })
     }, [comments]);
 
     useEffect(() => {
@@ -33,23 +41,23 @@ const SingleArticle = () => {
                 setComments(comments)
                 setLoadingComments(false)
             })
-            .catch(err => console.log(err))
     }, [comments]);
 
     return (
         <>
             <div className="single-article">
                 {loadingArticle && <h2>loading article...</h2>}
+                {status && <h2>{status}: {errorMessage}</h2>}
                 <DisplaySingleArticle article_id={article_id} article={article} setArticleVotes={setArticleVotes} articleVotes={articleVotes} />
             </div>
 
             <div className="comments-wrapper">
                 {comment_count === 1 ? <h3>{comment_count} Comment</h3> : <h3>{comment_count} Comments</h3>}
                 {loadingComments && <h2>loading comments...</h2>}
-                <AddComment setPostingComment={setPostingComment} article_id={article_id} comments={comments} setComments={setComments}/>
+                <AddComment setPostingComment={setPostingComment} article_id={article_id} comments={comments} setComments={setComments} />
                 {postingComment && <p>posting comment...</p>}
 
-                <Comments comments={comments} setComments={setComments}/>
+                <Comments comments={comments} setComments={setComments} />
             </div>
         </>
     );

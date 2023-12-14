@@ -1,6 +1,7 @@
 import { useEffect, useState} from "react";
 import { getArticles, getTopics } from "../utils/api";
 import { Link } from "react-router-dom";
+import ErrorTopic from "./ErrorTopic";
 
 const NavBar = ({setArticles, setSelectedTopic, selectedTopic, sort, order}) => {
     const [topics, setTopics] = useState([]);
@@ -43,9 +44,8 @@ const NavBar = ({setArticles, setSelectedTopic, selectedTopic, sort, order}) => 
         )}
     </ul>
     {loading && <h2>loading...</h2>}
+    <ErrorTopic topics={topics} setArticles={setArticles}/>
         </>
-   
-
     )
 }
  
