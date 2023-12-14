@@ -7,7 +7,8 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (inputBody.length < 5) return alert("comment should be at least 5 characters")
+        if (inputBody.length < 5 || inputBody.length > 500) return alert("comment should be at least 5 characters and no more than 500 characters")
+
         setPostingComment(true)
 
         setComments(comments => [{ author: inputUsername, body: inputBody, created_at: (new Date().toISOString()), comment_id: new Date() }, ...comments])
@@ -25,19 +26,22 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
     }
 
     return (
-        <form onSubmit={e => handleSubmit(e)}>
-            <input type="text" placeholder="username..." value={inputUsername} onChange={e => setInputUsername(e.target.value)} required /><br />
-            <textarea
-                name="comment"
-                id="comment"
-                cols="50"
-                rows="4"
-                placeholder="comment..."
-                value={inputBody}
-                onChange={e => setInputBody(e.target.value)} required >
-            </textarea><br />
-            <input type="submit" value="add comment" />
-        </form>
+        <div>
+            <form onSubmit={e => handleSubmit(e)}>
+                <input type="text" placeholder="username..." value={inputUsername} onChange={e => setInputUsername(e.target.value)} required /><br />
+                <textarea
+                    name="comment"
+                    id="comment"
+                    cols="50"
+                    rows="4"
+                    placeholder="comment..."
+                    value={inputBody}
+                    onChange={e => setInputBody(e.target.value)} required >
+                </textarea><br />
+                <input type="submit" value="add comment" />
+            </form>
+            <p>*min 5 characters. {500 - inputBody.length} characters remaining</p>
+        </div>
     );
 }
 
