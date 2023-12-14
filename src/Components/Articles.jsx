@@ -14,7 +14,6 @@ const Articles = ({articles, setArticles}) => {
         })
     }, []);
     
-
     return (
         <div>
             {loading && <h2>loading...</h2>}

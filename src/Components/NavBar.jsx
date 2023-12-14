@@ -1,8 +1,8 @@
 import { useEffect, useState} from "react";
-import { getArticleByTopic, getArticles, getTopics } from "../utils/api";
+import { getArticles, getTopics } from "../utils/api";
 import { Link } from "react-router-dom";
 
-const NavBar = ({setArticles}) => {
+const NavBar = ({setArticles, setSelectedTopic, selectedTopic, sort, order}) => {
     const [topics, setTopics] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -13,21 +13,18 @@ const NavBar = ({setArticles}) => {
         })
     }, [topics])
 
+    useEffect(() => {
+        getArticles(sort, order, selectedTopic)
+        .then(({articles}) => {
+            setArticles(articles)
+            setLoading(false)
+        })
+    }, [selectedTopic])
+
     const handleClick = (topic) => {
-        setLoading(true)
-        if (topic) {
-            getArticleByTopic(topic)
-            .then(({articles}) => {
-                setArticles(articles)
-                setLoading(false)
-            })   
-        }
-        else {
-            getArticles()
-            .then(({articles}) => {
-                setArticles(articles)
-                setLoading(false)
-            })
+        if (topic !== selectedTopic) {
+            setLoading(true)
+            setSelectedTopic(topic)
         }
     }
 
