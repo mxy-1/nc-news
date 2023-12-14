@@ -22,8 +22,10 @@ const NavBar = ({setArticles, setSelectedTopic, selectedTopic}) => {
     }, [selectedTopic])
 
     const handleClick = (topic) => {
-        setLoading(true)
-        setSelectedTopic(topic)
+        if (topic !== selectedTopic) {
+            setLoading(true)
+            setSelectedTopic(topic)
+        }
     }
 
     return (

@@ -2,14 +2,26 @@ import axios from "axios";
 
 const api = axios.create({baseURL:"https://news-api-3trz.onrender.com/api"})
 
-export const getArticles = (sort="created_at", order="desc", topic) => {
-    let path = `/articles?sort_by=${sort}&order=${order}`
-    if (topic) {
-        path += `&topic=${topic}`
-    }
-    return api.get(path)
+// export const getArticles = (sort="created_at", order="desc", topic) => {
+//     let path = `/articles?sort_by=${sort}&order=${order}`
+//     if (topic) {
+//         path += `&topic=${topic}`
+//     }
+//     return api.get(path)
+//     .then(res => res.data)
+// }
+
+export const getArticles = (sort, order, topic) => {
+    return api.get(`/articles`, {
+        params: {
+            sort_by: sort,
+            order: order,
+            topic: topic,
+        }
+    })
     .then(res => res.data)
 }
+
 
 export const getSingleArticle = (article_id) => {
     return api.get(`/articles/${article_id}`)

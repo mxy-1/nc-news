@@ -12,7 +12,7 @@ const MainContent = () => {
         <>
             <NavBar topics={topics} setTopics={setTopics} setArticles={setArticles} setSelectedTopic={setSelectedTopic} selectedTopic={selectedTopic}/>
             <Sort setArticles={setArticles} selectedTopic={selectedTopic}/>
-            <Articles articles={articles} setArticles={setArticles} />
+            <Articles articles={articles} setArticles={setArticles}/>
         </>
 
     );
