@@ -43,7 +43,7 @@ const NavBar = ({setArticles, setSelectedTopic, selectedTopic, sort, order}) => 
        )}
         )}
     </ul>
-    {loading && <h2>loading...</h2>}
+    {loading && <><div className="loader"></div><p className="loading">loading...</p></>}
     <ErrorTopic topics={topics} setArticles={setArticles}/>
         </>
     )

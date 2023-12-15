@@ -1,0 +1,22 @@
+.single-article-container {
+    text-align: center;
+    border: 1px solid rgba(135, 206, 250, 0.371);
+    align-items: center;
+    display: flex;
+}
+
+.votes-wrapper {
+    flex-basis: 1rem;
+    margin-left: 1rem;
+    align-self: flex-start;
+    margin-top: 8rem;
+}
+
+.single-title {
+    width: 90%;
+    text-align: left;
+    align-items: center;
+    display: inline-block;
+    margin: 0;
+    margin-bottom: 1%;
+}

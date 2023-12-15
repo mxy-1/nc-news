@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { patchArticleVotes } from "../../utils/api";
+import "./DisplaySingleArticle.css"
 
 const DisplaySingleArticle = ({ article_id, article, setArticleVotes, articleVotes, errorMessage }) => {
 
@@ -28,20 +29,20 @@ const DisplaySingleArticle = ({ article_id, article, setArticleVotes, articleVot
     }
 
     return (
-        <>
-            <h2 className="single-title">{title}</h2>
-            <img id="single-article-img" src={article_img_url} />
-            <h3 className="single-author">by {author}</h3>
-            <p className="article-body">{body}</p>
-
-            <div>
+        <div className="single-article-container">
+            <div className="votes-wrapper">
                 {voteError && <p>{voteError}</p>}
-        
                 {!errorMessage && <button onClick={handleClickUp}>⇧</button>}
                 <p className="article-votes">{articleVotes} votes</p>
                 {!errorMessage && <button onClick={handleClickDown}>⇩</button>}
             </div>
-        </>
+            <div>
+                <h2 className="single-title">{title}</h2>
+                <img id="single-article-img" src={article_img_url} />
+                <h3 className="single-author">by {author}</h3>
+                <p className="article-body">{body}</p>
+            </div>
+        </div>
 
     );
 }

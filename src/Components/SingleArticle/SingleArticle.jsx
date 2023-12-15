@@ -46,7 +46,7 @@ const SingleArticle = () => {
     return (
         <>
             <div className="single-article">
-                {loadingArticle && <h2>loading article...</h2>}
+                {loadingArticle && <><div className="loader"></div><p className="loading">loading article...</p></>}
                 {status && <h2>{status}: {errorMessage}</h2>}
                 <DisplaySingleArticle article_id={article_id} article={article} setArticleVotes={setArticleVotes} articleVotes={articleVotes} errorMessage={errorMessage}/>
             </div>

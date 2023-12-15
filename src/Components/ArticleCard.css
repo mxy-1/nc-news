@@ -1,6 +1,6 @@
 .article-card {
     text-align: center;
-    border: 2px dotted orange;
+    border: 1px solid rgba(135, 206, 250, 0.371);
     align-items: center;
     display: flex;
     font-size: 14px;
@@ -17,11 +17,10 @@
 }
 
 .article-card:hover {
-    box-shadow: 3px 6px 5px rgba(240, 171, 43, 0.287);
+    box-shadow: 3px 6px 5px rgba(135, 206, 250, 0.165);
 }
 
-.article-card-title,
-.single-title {
+.article-card-title {
     width: 90%;
     text-align: left;
     align-items: center;
@@ -30,17 +29,9 @@
     margin-bottom: 1%;
 }
 
-/* .article-author, */
-.single-author {
-    text-align: left;
-    width: 90%;
-    font-size: 12px;
-    display: inline-block;
-    margin: 0;
-}
 
 .article-author {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
 }
 

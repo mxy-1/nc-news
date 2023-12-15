@@ -16,7 +16,7 @@ const Articles = ({articles, setArticles}) => {
     
     return (
         <div>
-            {loading && <h2>loading...</h2>}
+            {loading && <><div className="loader"></div><p className="loading">loading...</p></>}
             <ul>
                 {articles.map((article, i) => {
                     return (

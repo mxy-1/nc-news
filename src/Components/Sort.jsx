@@ -19,20 +19,20 @@ const Sort = ({ setArticles, selectedTopic, setSort, setOrder, sort, order}) => 
     }, [sort, order])
 
     return (
-        <>
-            <label htmlFor="sort">sort by:</label>
+        <div className="sort-options">
+            <label id="sort-label" htmlFor="sort">sort by:</label>
             <select name="sort" id="sort" onChange={e =>
                 handleChange(e)}>
                 <option value="created_at">date</option>
                 <option value="votes">votes</option>
             </select>
 
-            <label htmlFor="order">order by:</label>
+            <label id="order-label" htmlFor="order">order by:</label>
             <select name="order" id="order" onChange={handleOrderByChange}>
                 <option value="desc">desc</option>
                 <option value="asc">asc</option>
             </select>
-        </>
+        </div>
 
     );
 }

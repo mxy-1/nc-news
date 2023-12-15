@@ -18,7 +18,6 @@ function App() {
     <>
     <Header />
     <NavBar topics={topics} setTopics={setTopics} setArticles={setArticles} setSelectedTopic={setSelectedTopic} selectedTopic={selectedTopic} sort={sort} order={order}/>
-
     <Routes>
       < Route path="/" element={<MainContent articles={articles} setArticles={setArticles} selectedTopic={selectedTopic} sort={sort} setSort={setSort} order={order} setOrder={setOrder}/>}/>
       < Route path="/articles" element={<MainContent articles={articles} setArticles={setArticles} selectedTopic={selectedTopic} sort={sort} setSort={setSort} order={order} setOrder={setOrder}/>}/>
