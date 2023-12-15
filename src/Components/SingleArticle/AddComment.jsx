@@ -23,8 +23,9 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
             })
             .catch(err => {
                 setPostingComment(false)
+                setError(true)
                 alert("an error occurred. please check username is valid.")
-                setError(false)
+               
             })
     }
 
