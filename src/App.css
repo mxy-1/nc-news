@@ -1,20 +1,35 @@
 #root {
-  margin: 0 auto;
-  padding: 4% 8%;
+  /* margin: 0 auto; */
+  /* padding: 4% 8%; */
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
 }
 
 h1 {
-  border: 2px dashed lightskyblue;
+  border: 2px solid lightskyblue;
+  margin: 0;
+  padding: 1rem 1rem;
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
-.article-card{
+ul.nav-wrapper {
+  background-color: lightskyblue;
+  overflow:hidden;
+}
+
+li.nav {
+  float: left;
+  padding: 4px 6px;
+  font-weight: bold;
+  color: black;
+}
+
+.article-card {
   text-align: center;
   border: 2px dotted orange;
   align-items: center;
@@ -38,15 +53,12 @@ img {
   color: black;
 }
 
-/* #single-article-img {
-  width: 50%;
-} */
-
 .single-comment {
   border: 2px dashed lightcoral;
 }
 
-.article-card-title, .single-title {
+.article-card-title,
+.single-title {
   width: 80%;
   text-align: left;
   align-items: center;
@@ -54,7 +66,8 @@ img {
   margin: 0;
 }
 
-.article-author, .single-author {
+.article-author,
+.single-author {
   text-align: left;
   width: 80%;
   font-size: 12px;

@@ -31,14 +31,14 @@ const NavBar = ({setArticles, setSelectedTopic, selectedTopic, sort, order}) => 
 
     return (
         <>
-         <ul>
+         <ul className="nav-wrapper">
         <Link to="/" onClick={() => handleClick()}>
-            <li >home</li>
+            <li className="nav" >home</li>
         </Link>
         {topics.map((topic) => {
        return (
        <Link to={`/articles?topic=${topic}`} key={topic}>
-           <li onClick={() => handleClick(topic)} >{topic}</li>
+           <li className="nav" onClick={() => handleClick(topic)} >{topic}</li>
        </Link>
        )}
         )}
