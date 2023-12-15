@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import convertDate from "../utils/date";
 import "./ArticleCard.css"
 

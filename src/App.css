@@ -17,6 +17,8 @@ ul {
 
 ul.nav-wrapper {
   background-color: lightskyblue;
+  border-bottom: 2px solid lightskyblue;
+  border-left: 2px solid lightskyblue;
   overflow:hidden;
 }
 
@@ -25,6 +27,11 @@ li.nav {
   padding: 4px 6px;
   font-weight: bold;
   color: black;
+}
+
+li.nav:hover {
+  text-decoration: underline white solid 6px;
+  text-underline-position: under;
 }
 
 img {

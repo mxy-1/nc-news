@@ -8,7 +8,6 @@ const MainContent = ({articles, setArticles, selectedTopic, sort, setSort, setOr
         <>
             <Sort setArticles={setArticles} selectedTopic={selectedTopic} setSort={setSort} setOrder={setOrder} sort={sort} order={order}/>
             <Articles articles={articles} setArticles={setArticles}/>
-       
         </>
 
     );
