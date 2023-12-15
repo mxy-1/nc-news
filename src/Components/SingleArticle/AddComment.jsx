@@ -4,10 +4,11 @@ import { postComment } from "../../utils/api";
 const AddComment = ({ setPostingComment, article_id, comments, setComments }) => {
     const [inputBody, setInputBody] = useState("");
     const [inputUsername, setInputUsername] = useState("");
+    const [error, setError] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (inputBody.length < 5 || inputBody.length > 500) return alert("comment should be at least 5 characters and no more than 500 characters")
+        if (inputBody.length < 5 || inputBody.length > 500) return setError(true)
 
         setPostingComment(true)
 
@@ -18,10 +19,12 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
                 setPostingComment(false)
                 setInputBody("")
                 setInputUsername("")
+                setError(false)
             })
             .catch(err => {
                 setPostingComment(false)
                 alert("an error occurred. please check username is valid.")
+                setError(false)
             })
     }
 
@@ -41,6 +44,7 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
                 <input type="submit" value="add comment" />
             </form>
             <p>*min 5 characters. {500 - inputBody.length} characters remaining</p>
+            {error && <p>could not post comment. please try again</p>}
         </div>
     );
 }
