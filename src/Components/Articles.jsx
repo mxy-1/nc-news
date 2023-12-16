@@ -1,19 +1,27 @@
 import { useEffect, useState } from "react";
-import {getArticles} from "../utils/api";
+import { getArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
-import {Link} from "react-router-dom" 
+import { Link, useNavigate, useParams } from "react-router-dom"
 
-const Articles = ({articles, setArticles}) => {
+const Articles = ({ articles, setArticles, sort, order }) => {
     const [loading, setLoading] = useState(true)
+    const { topic } = useParams()
+    const [error, setError] = useState(false);
+    const navigate = useNavigate()
 
     useEffect(() => {
-        getArticles()
-        .then(({ articles }) => {
-            setArticles(articles)
-            setLoading(false)
-        })
-    }, []);
-    
+        setLoading(true)
+        getArticles(sort, order, topic)
+            .then(({ articles }) => {
+                setArticles(articles)
+                setLoading(false)
+            })
+            .catch(err => {
+                setError(true)
+                setLoading(false)
+            })
+    }, [topic, sort, order]);
+
     return (
         <div>
             {loading && <><div className="loader"></div><p className="loading">loading...</p></>}
@@ -28,6 +36,7 @@ const Articles = ({articles, setArticles}) => {
                     )
                 })}
             </ul>
+            {error && navigate("/*")}
         </div>
     )
 }

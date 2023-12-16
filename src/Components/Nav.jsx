@@ -12,7 +12,6 @@ const Nav = () => {
             })
     }, [topics])
 
-
     return (
     <ul className="nav-wrapper">
         <Link to="/">
@@ -20,7 +19,7 @@ const Nav = () => {
         </Link>
         {topics.map((topic) => {
             return (
-                <Link to={`/articles?topic=${topic}`} key={topic}>
+                <Link to={`/articles/topics/${topic}`} key={topic}>
                     <li className="nav" >{topic}</li>
                 </Link>
             )

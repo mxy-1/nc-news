@@ -1,8 +1,4 @@
-import { useEffect} from "react";
-import { getArticles } from "../utils/api";
-
-const Sort = ({ setArticles, selectedTopic, setSort, setOrder, sort, order}) => {
-
+const Sort = ({setSort, setOrder}) => {
     const handleChange = (e) => {
         setSort(e.target.value)
     }
@@ -10,13 +6,6 @@ const Sort = ({ setArticles, selectedTopic, setSort, setOrder, sort, order}) => 
     const handleOrderByChange = (e) => {
         setOrder(e.target.value)
     }
-
-    useEffect(() => {
-        getArticles(sort, order, selectedTopic)
-        .then(({ articles }) => {
-            setArticles(articles)
-        })
-    }, [sort, order])
 
     return (
         <div className="sort-options">
@@ -33,7 +22,6 @@ const Sort = ({ setArticles, selectedTopic, setSort, setOrder, sort, order}) => 
                 <option value="asc">asc</option>
             </select>
         </div>
-
     );
 }
 
