@@ -1,6 +1,6 @@
 .single-article-container {
     text-align: center;
-    border: 1px solid rgba(135, 206, 250, 0.371);
+    /* border-bottom: 1px solid rgba(135, 206, 250, 0.371); */
     align-items: center;
     display: flex;
 }
@@ -17,6 +17,61 @@
     text-align: left;
     align-items: center;
     display: inline-block;
-    margin: 0;
     margin-bottom: 1%;
+}
+
+.single-topic {
+    text-align: right;
+    font-size: 12px;
+    margin: 1% 1%;
+    color: black;
+}
+
+.topic-link {
+    text-decoration: none;
+}
+
+.single-author {
+    text-align: left;
+    width: 90%;
+    font-size: 12px;
+    display: inline-block;
+    margin: 0;
+}
+
+.single-topic:hover {
+    text-decoration: underline lightskyblue;
+    text-underline-position: under;
+}
+
+.single-article {
+    display: inline-block;
+}
+
+.single-article-link {
+    text-decoration: none;
+    color: black;
+}
+
+.single-comment {
+    border: 1px solid rgba(135, 206, 250, 0.165);
+}
+
+.single-title {
+    padding-top: 10px;
+    padding-bottom: 6px;
+}
+
+.vote-button {
+    width: 56%;
+}
+
+.vote-button:hover {
+    scale: 1.1;
+}
+
+.single-article-votes {
+    margin: 0;
+    padding-top: 16%;
+    padding-bottom: 24%;
 }

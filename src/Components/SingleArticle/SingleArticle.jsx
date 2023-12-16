@@ -15,7 +15,6 @@ const SingleArticle = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [status, setStatus] = useState("");
 
-
     const { article_id } = useParams()
 
     const { article_id: id, article_img_url, author, body, comment_count, created_at, title, topic, votes } = article

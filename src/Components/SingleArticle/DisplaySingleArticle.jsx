@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { patchArticleVotes } from "../../utils/api";
 import "./DisplaySingleArticle.css"
+import { Link } from "react-router-dom";
+import up from "../../assets/up-arrow.png"
+import down from "../../assets/down-arrow.png"
 
 const DisplaySingleArticle = ({ article_id, article, setArticleVotes, articleVotes, errorMessage }) => {
 
     const { article_id: id, article_img_url, author, body, comment_count, created_at, title, topic, votes } = article
 
     const [voteError, setVoteError] = useState(null);
+
 
     const handleClickUp = () => {
         setArticleVotes(articleVotes => articleVotes + 1)
@@ -32,11 +36,15 @@ const DisplaySingleArticle = ({ article_id, article, setArticleVotes, articleVot
         <div className="single-article-container">
             <div className="votes-wrapper">
                 {voteError && <p>{voteError}</p>}
-                {!errorMessage && <button onClick={handleClickUp}>⇧</button>}
-                <p className="article-votes">{articleVotes} votes</p>
-                {!errorMessage && <button onClick={handleClickDown}>⇩</button>}
+                {!errorMessage && <img src={up} alt="up arrow" className="vote-button" onClick={handleClickUp}/>}
+                <p className="article-votes" className="single-article-votes"> {articleVotes} votes</p>
+                {!errorMessage && 
+                <img src={down} alt="down arrow" className="vote-button" onClick={handleClickDown}/>}
             </div>
             <div>
+                <Link className="topic-link" to={`/articles/topics/${topic}`}>
+                    <p className="single-topic">{topic}</p>
+                </Link>
                 <h2 className="single-title">{title}</h2>
                 <img id="single-article-img" src={article_img_url} />
                 <h3 className="single-author">by {author}</h3>
