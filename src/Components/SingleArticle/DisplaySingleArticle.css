@@ -70,7 +70,7 @@
     scale: 1.1;
 }
 
-.single-article-votes {
+#single-article-votes {
     margin: 0;
     padding-top: 16%;
     padding-bottom: 24%;
