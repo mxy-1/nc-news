@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom"
 import SingleArticle from './Components/SingleArticle/SingleArticle.jsx'
 import Error from './Components/Error.jsx'
 import Nav from './Components/Nav.jsx'
+import LogIn from './LogIn.jsx'
 
 function App() {
 
@@ -13,8 +14,9 @@ function App() {
             <Header />
             <Nav />
             <Routes>
-                < Route path="/" element={<MainContent  />} />
-                < Route path="/articles" element={<MainContent/>} />
+                < Route path="/" element={<MainContent />} />
+                <Route path="/login" element={<LogIn />} />
+                < Route path="/articles" element={<MainContent />} />
                 <Route path="/articles/topics/:topic" element={<MainContent />} />
                 < Route path="/articles/:article_id" element={<SingleArticle />} />
                 <Route path="*" element={<Error />} />
