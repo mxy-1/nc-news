@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postComment } from "../../utils/api";
+import { UserContext } from "../../UserContext";
 
 const AddComment = ({ setPostingComment, article_id, comments, setComments }) => {
     const [inputBody, setInputBody] = useState("");
     const [inputUsername, setInputUsername] = useState("");
     const [error, setError] = useState(false)
+    const {user} = useContext(UserContext)
+    const [validUser, setValidUser] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (inputBody.length < 5 || inputBody.length > 500) return setError(true)
+        if (inputUsername !== user.username) return setValidUser(false)
 
         setPostingComment(true)
 
@@ -20,12 +24,12 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
                 setInputBody("")
                 setInputUsername("")
                 setError(false)
+                setValidUser(true)
             })
             .catch(err => {
                 setPostingComment(false)
                 setError(true)
                 alert("an error occurred. please check username is valid.")
-               
             })
     }
 
@@ -46,6 +50,7 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
             </form>
             <p>*min 5 characters. {500 - inputBody.length} characters remaining</p>
             {error && <p>could not post comment. please try again</p>}
+            {!validUser && <p>username should matched logged in user</p>}
         </div>
     );
 }
