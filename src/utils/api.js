@@ -44,3 +44,8 @@ export const getTopics = () => {
 export const deleteComment = (comment_id) => {
     return api.delete(`/comments/${comment_id}`)
 }
+
+export const getUsers = () => {
+    return api.get(`/users`)
+    .then(res => res.data)
+}

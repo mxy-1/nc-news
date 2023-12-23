@@ -1,6 +1,6 @@
 import SingleComment from "./SingleComment";
 
-const Comments = ({ comments, user, setComments }) => {
+const Comments = ({ comments, setComments }) => {
     return (
         <ul>
             {comments.map((comment, i) => {

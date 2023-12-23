@@ -5,12 +5,13 @@ import { Routes, Route } from "react-router-dom"
 import SingleArticle from './Components/SingleArticle/SingleArticle.jsx'
 import Error from './Components/Error.jsx'
 import Nav from './Components/Nav.jsx'
-import LogIn from './LogIn.jsx'
+import LogIn from './Components/LogIn.jsx'
+import { UserProvider } from './UserContext.jsx'
 
 function App() {
 
     return (
-        <>
+        <UserProvider>
             <Header />
             <Nav />
             <Routes>
@@ -21,7 +22,7 @@ function App() {
                 < Route path="/articles/:article_id" element={<SingleArticle />} />
                 <Route path="*" element={<Error />} />
             </Routes>
-        </>
+        </UserProvider>
     )
 }
 

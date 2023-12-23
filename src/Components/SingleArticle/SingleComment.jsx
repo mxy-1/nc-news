@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useContext, useEffect } from "react";
 import { deleteComment } from "../../utils/api";
 import convertDate from "../../utils/date";
-
+import { UserContext } from "../../UserContext";
 
 const SingleComment = ({ comment, setComments, i, comments}) => {
     const { comment_id, votes, created_at, author, body, article_id } = comment
-    const [user, setUser] = useState("jessjelly")
+    const {user} = useContext(UserContext)
 
     const updatedComments = [...comments]
     const deletedComment = updatedComments.splice(i, 1)
@@ -22,9 +22,8 @@ const SingleComment = ({ comment, setComments, i, comments}) => {
         <li className="single-comment">
             <p>{author} {convertDate(created_at)}</p>
             <p>{body}</p>
-            {user === author && <button onClick={handleClick}>delete</button>}
+            {user.username === author && <button onClick={handleClick}>delete</button>}
         </li>
-
     );
 }
 
