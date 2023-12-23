@@ -20,10 +20,8 @@ const LogIn = () => {
             setUser(users.filter(user => {
                 return user.username === usernameInput
             })[0])
-            console.log(user, "logged in!")
         } else {
             setUserExists(false)
-            console.log(usernameInput, "nope!")
         }
         setUsernameInput("")
     }
