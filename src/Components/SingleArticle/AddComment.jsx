@@ -7,12 +7,12 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
     const [inputUsername, setInputUsername] = useState("");
     const [error, setError] = useState(false)
     const {user} = useContext(UserContext)
-    const [validUser, setValidUser] = useState(false);
+    const [validUser, setValidUser] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (inputBody.length < 5 || inputBody.length > 500) return setError(true)
-        if (inputUsername !== user.username) return setValidUser(false)
+        else if (inputUsername !== user.username) return setValidUser(false)
 
         setPostingComment(true)
 
@@ -29,7 +29,6 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
             .catch(err => {
                 setPostingComment(false)
                 setError(true)
-                alert("an error occurred. please check username is valid.")
             })
     }
 
