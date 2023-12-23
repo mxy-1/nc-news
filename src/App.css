@@ -114,3 +114,8 @@ img {
   font-size: 12px;
   margin: 0;
 }
+
+#logged-in{
+  width: 10rem;
+  height: 10rem;
+}
