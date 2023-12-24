@@ -2,7 +2,8 @@
     text-align: center;
     border: 1px solid rgba(135, 206, 250, 0.371);
     align-items: center;
-    display: flex;
+    display: grid;
+    grid-template-columns: 60px 18% auto;
     font-size: 14px;
 }
 
@@ -12,7 +13,7 @@
 }
 
 .article-card-img {
-    width: 18%;
+    width: 100%;
 }
 
 .article-card:hover {
@@ -48,9 +49,8 @@
     font-size: 12px;
     text-align: right;
     display: inline-block;
-    width: 90%;
     justify-content: end;
-    width: 66vw;
+    width: 100%;
 }
 
 .article-body {
