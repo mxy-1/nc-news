@@ -47,9 +47,9 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
                 </textarea><br />
                 <input type="submit" value="add comment" />
             </form>
-            <p>*min 5 characters. {500 - inputBody.length} characters remaining</p>
-            {error && <p>could not post comment. please try again</p>}
-            {!validUser && <p>username should matched logged in user</p>}
+            <p className="error">*min 5 characters. {500 - inputBody.length} characters remaining</p>
+            {error && <p className="error" >could not post comment. please try again</p>}
+            {!validUser && <p className="error">username should matched logged in user</p>}
         </div>
     );
 }

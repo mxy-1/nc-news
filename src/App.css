@@ -120,3 +120,8 @@ img {
   width: 10rem;
   height: 10rem;
 }
+
+.error {
+  font-size: 12px;
+  margin: 0;
+}
