@@ -29,10 +29,8 @@ const SingleComment = ({ comment, setComments, i, comments }) => {
                 <img src={down} alt="down arrow" className="vote-button-comment" />
             </div>
             <div className="comment-body-wrapper">
+            <p className="comment-author"><strong>{author}</strong><em>{convertDate(created_at)}</em></p>
                 <p className="comment-body">{body}</p>
-                <small>
-                    <p className="comment-author"><em>{author} </em>{convertDate(created_at)}</p>
-                </small>
                 {user.username === author && <button onClick={handleClick}>delete</button>}
             </div>
         </li>

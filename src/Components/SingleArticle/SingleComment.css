@@ -12,6 +12,7 @@
 
 .comment-body-wrapper {
     text-align: left;
+    margin-top: 4px;
 }
 
 .votes-comment {
@@ -26,10 +27,13 @@
 
 .comment-author {
     margin: 0;
-    text-align: end;
+    margin-top: 4px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .comment-body {
-    margin-top: 10px;
-    margin-bottom: 6px;
+    margin-top: 4px;
+    margin-bottom: 10px;
 }
