@@ -39,7 +39,7 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
                 <textarea
                     name="comment"
                     id="comment"
-                    cols="50"
+                    cols="46"
                     rows="4"
                     placeholder="comment..."
                     value={inputBody}

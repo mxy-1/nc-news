@@ -1,11 +1,14 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { deleteComment } from "../../utils/api";
 import convertDate from "../../utils/date";
 import { UserContext } from "../../UserContext";
+import up from "../../assets/up-arrow.png"
+import down from "../../assets/down-arrow.png"
+import "./SingleComment.css"
 
-const SingleComment = ({ comment, setComments, i, comments}) => {
+const SingleComment = ({ comment, setComments, i, comments }) => {
     const { comment_id, votes, created_at, author, body, article_id } = comment
-    const {user} = useContext(UserContext)
+    const { user } = useContext(UserContext)
 
     const updatedComments = [...comments]
     const deletedComment = updatedComments.splice(i, 1)
@@ -20,9 +23,18 @@ const SingleComment = ({ comment, setComments, i, comments}) => {
 
     return (
         <li className="single-comment">
-            <p>{author} {convertDate(created_at)}</p>
-            <p>{body}</p>
-            {user.username === author && <button onClick={handleClick}>delete</button>}
+            <div className="votes-wrapper-comment">
+                <img src={up} alt="up arrow" className="vote-button-comment" />
+                <p className="votes-comment">{votes}</p>
+                <img src={down} alt="down arrow" className="vote-button-comment" />
+            </div>
+            <div className="comment-body-wrapper">
+                <p className="comment-body">{body}</p>
+                <small>
+                    <p className="comment-author"><em>{author} </em>{convertDate(created_at)}</p>
+                </small>
+                {user.username === author && <button onClick={handleClick}>delete</button>}
+            </div>
         </li>
     );
 }

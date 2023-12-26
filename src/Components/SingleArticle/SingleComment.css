@@ -1,0 +1,35 @@
+.votes-wrapper-comment {
+    margin: 0;
+}
+
+.vote-button-comment {
+    width: 1rem;
+}
+
+.vote-button:hover {
+    scale: 1.1;
+}
+
+.comment-body-wrapper {
+    text-align: left;
+}
+
+.votes-comment {
+    margin: 0;
+}
+
+.single-comment {
+    display: grid;
+    grid-template-columns: 40px auto;
+    align-items: center;
+}
+
+.comment-author {
+    margin: 0;
+    text-align: end;
+}
+
+.comment-body {
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
