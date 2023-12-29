@@ -43,7 +43,8 @@ const LogIn = () => {
             </form>
             {userExists && user &&
             <div>
-                <img className="logged-in" src={user.avatar_url}/><p>{user.name} currently logged in</p>
+                <p>{user.name} currently logged in</p>
+                <img className="logged-in" src={user.avatar_url}/>
             </div>}
             {!userExists && <p>username does not exist. please try again.</p>}
         </div>

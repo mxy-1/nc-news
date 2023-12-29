@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../UserContext";
+import { Link } from "react-router-dom";
 
 
 const LogOut = () => {
@@ -9,10 +10,11 @@ const LogOut = () => {
         <div>
             {user &&
                 <div>
-                    <img className="logged-in" src={user.avatar_url} /><p>{user.name} currently logged in</p>
-                    <button onClick={() => setUser("")}>log out</button>
+                    <p>{user.name} currently logged in</p>
+                    <img className="logged-in" src={user.avatar_url} /><br/>
+                    <Link to="/" ><button onClick={() =>  setUser("")}>log out</button></Link>
                 </div>}
-            {!user && <p>you have been logged out</p>}
+            {/* {!user && <p>you have been logged out</p>} */}
         </div>
     );
 }
