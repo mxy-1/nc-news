@@ -14,7 +14,6 @@ const LogOut = () => {
                     <img className="logged-in" src={user.avatar_url} /><br/>
                     <Link to="/" ><button onClick={() =>  setUser("")}>log out</button></Link>
                 </div>}
-            {/* {!user && <p>you have been logged out</p>} */}
         </div>
     );
 }
