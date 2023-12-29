@@ -7,6 +7,7 @@ import Error from './Components/Error.jsx'
 import Nav from './Components/Nav.jsx'
 import LogIn from './Components/LogIn.jsx'
 import { UserProvider } from './UserContext.jsx'
+import LogOut from './Components/LogOut.jsx'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
             <Nav />
             <Routes>
                 < Route path="/" element={<MainContent />} />
+                <Route path="/logout" element={<LogOut />} />
                 <Route path="/login" element={<LogIn />} />
                 < Route path="/articles" element={<MainContent />} />
                 <Route path="/articles/topics/:topic" element={<MainContent />} />

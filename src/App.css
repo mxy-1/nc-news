@@ -20,11 +20,11 @@ h1 {
   padding-left: none;
 }
 
-#link {
+.link {
   text-decoration: none;
 }
 
-#link-login {
+.link-login {
   margin: 0;
   text-align: center;
   background-color: lightskyblue;
@@ -116,7 +116,7 @@ img {
   margin: 0;
 }
 
-#logged-in{
+.logged-in{
   width: 10rem;
   height: 10rem;
 }

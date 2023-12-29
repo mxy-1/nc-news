@@ -8,9 +8,16 @@ const Header = () => {
         <div className="header-wrapper">
             <h1>NC News</h1>
             <div className="login-wrapper">
-                <Link id="link" to="/login">
-                    <p id="link-login">log in</p>
-                </Link>
+
+                {user ?
+                    <Link className="link"  to="/logout">
+                        <p className="link-login">log out</p>
+                    </Link> :
+                    <Link className="link" to="/login">
+                        <p className="link-login">log in</p>
+                    </Link>
+                }
+
                 {user.username && <img className="avatar" src={user.avatar_url} />}
                 <p className="header-username">{user.username}</p>
             </div>
