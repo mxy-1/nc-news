@@ -4,27 +4,22 @@ import { UserContext } from "../../UserContext";
 
 const AddComment = ({ setPostingComment, article_id, comments, setComments }) => {
     const [inputBody, setInputBody] = useState("");
-    const [inputUsername, setInputUsername] = useState("");
     const [error, setError] = useState(false)
     const {user} = useContext(UserContext)
-    const [validUser, setValidUser] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (inputBody.length < 5 || inputBody.length > 500) return setError(true)
-        else if (inputUsername !== user.username) return setValidUser(false)
-
+         
         setPostingComment(true)
 
-        setComments(comments => [{ author: inputUsername, body: inputBody, created_at: (new Date().toISOString()), comment_id: new Date() }, ...comments])
+        setComments(comments => [{ author: user.username, body: inputBody, created_at: (new Date().toISOString()), comment_id: new Date() }, ...comments])
 
-        postComment(article_id, inputUsername, inputBody)
+        postComment(article_id, user.username, inputBody)
             .then(() => {
                 setPostingComment(false)
                 setInputBody("")
-                setInputUsername("")
                 setError(false)
-                setValidUser(true)
             })
             .catch(err => {
                 setPostingComment(false)
@@ -35,7 +30,6 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
     return (
         <div>
             <form onSubmit={e => handleSubmit(e)}>
-                <input type="text" placeholder="username..." value={inputUsername} onChange={e => setInputUsername(e.target.value)} required /><br />
                 <textarea
                     name="comment"
                     id="comment"
@@ -47,9 +41,9 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
                 </textarea><br />
                 <input type="submit" value="add comment" />
             </form>
-            <p className="error">*min 5 characters. {500 - inputBody.length} characters remaining</p>
-            {error && <p className="error" >could not post comment. please try again</p>}
-            {!validUser && <p className="error">username should matched logged in user</p>}
+            <p className="error">*min 5 characters. {500 - inputBody.length} characters remaining.</p>
+            {!user && <p className="error" >**user must be logged in to post a comment.</p>}
+            {error && <p className="error" >could not post comment. please try again.</p>}
         </div>
     );
 }
