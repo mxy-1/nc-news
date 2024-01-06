@@ -1,35 +1,46 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { patchArticleVotes } from "../../utils/api";
 import "./DisplaySingleArticle.css"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import up from "../../assets/up-arrow.png"
 import down from "../../assets/down-arrow.png"
+import { UserContext } from "../../UserContext";
 
 const DisplaySingleArticle = ({ article_id, article, setArticleVotes, articleVotes, errorMessage }) => {
-
+    const {user} = useContext(UserContext)
+    
     const { article_id: id, article_img_url, author, body, comment_count, created_at, title, topic, votes } = article
 
     const [voteError, setVoteError] = useState(null);
 
+    const navigate = useNavigate()
 
     const handleClickUp = () => {
-        setArticleVotes(articleVotes => articleVotes + 1)
-        patchArticleVotes(article_id, 1)
-            .then(() => setVoteError(null))
-            .catch((err) => {
-                setArticleVotes(articleVotes => articleVotes - 1)
-                setVoteError("something went wrong, please try again")
-            })
+        if (user) {
+            setArticleVotes(articleVotes => articleVotes + 1)
+            patchArticleVotes(article_id, 1)
+                .then(() => setVoteError(null))
+                .catch((err) => {
+                    setArticleVotes(articleVotes => articleVotes - 1)
+                    setVoteError("something went wrong, please try again")
+                })
+        } else {
+            navigate("/login")
+        }
     }
 
     const handleClickDown = () => {
-        setArticleVotes(articleVotes => articleVotes - 1)
-        patchArticleVotes(article_id, -1)
-            .then(() => setVoteError(null))
-            .catch((err) => {
-                setArticleVotes(articleVotes => articleVotes + 1)
-                setVoteError("something went wrong, please try again")
-            })
+        if (user) {
+            setArticleVotes(articleVotes => articleVotes - 1)
+            patchArticleVotes(article_id, -1)
+                .then(() => setVoteError(null))
+                .catch((err) => {
+                    setArticleVotes(articleVotes => articleVotes + 1)
+                    setVoteError("something went wrong, please try again")
+                })
+        } else {
+            navigate("/login")
+        }    
     }
 
     return (
