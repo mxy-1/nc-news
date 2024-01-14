@@ -6,7 +6,9 @@ const Header = () => {
     const { user } = useContext(UserContext)
     return (
         <div className="header-wrapper">
-            <h1>NC News</h1>
+            <Link className="header-link" to="/">
+                <h1>NC News</h1>
+            </Link>
             <div className="login-wrapper">
 
                 {user ?
