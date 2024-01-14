@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { getUsers } from "../utils/api";
 import { UserContext } from "../UserContext";
 import { useNavigate } from "react-router-dom";
+import "./LogInOut.css"
 
 const LogIn = () => { 
     const navigate = useNavigate()
@@ -37,14 +38,14 @@ const LogIn = () => {
     }, []);
 
     return (
-        <div id="login-form-container">
-            <h2>log in</h2>
-            <form onSubmit={handleSubmit} >
-                <label htmlFor="username">username: </label><br/>
-                <input type="text" id="username" value={usernameInput} onChange={handleChange}/><br/>
-                <input type="submit" value="log in"/>
+        <div className="login-form-container">
+            <h2 id="header">log in</h2>
+            <form className="login-details" onSubmit={handleSubmit} >
+                    <label htmlFor="username" id="username-label">username: </label><br/>
+                    <input type="text" id="username" value={usernameInput} onChange={handleChange} placeholder="grumpy19"/><br/>
+                    <input type="submit" value="log in" className="link-login" id="login-button"/>
             </form>
-            {!userExists && <p>username does not exist. please try again.</p>}
+            {!userExists && <p className="error">*username does not exist. please try again.</p>}
         </div>
     );
 }

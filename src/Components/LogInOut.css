@@ -1,0 +1,56 @@
+.login-form-container {
+    border: 2px solid lightskyblue;
+    margin: auto;
+    margin-top: 60px;
+    border-radius: 10px;
+    padding: 2rem;
+    max-width: 300px;
+}
+
+#header {
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+#username-label {
+    display: flex;
+}
+
+#username {
+    height: 28px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: rgba(135, 206, 250, 0.165);
+    font-size: 16px;
+}
+
+#username:hover {
+    border: 2px solid rgba(135, 206, 250, 0.165);
+}
+
+.login-details {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-button {
+    width: 100%;
+    display: inline-block;
+    align-self: center;
+    border: 0px;
+}
+
+#login-button:hover,
+#log-out-button:hover {
+    cursor: pointer;
+}
+
+#log-out-button {
+    border: 0px;
+}
+
+.logged-in {
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 8px;
+  }
