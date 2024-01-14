@@ -48,3 +48,9 @@
 #log-out-button {
     border: 0px;
 }
+
+.logged-in {
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 8px;
+  }

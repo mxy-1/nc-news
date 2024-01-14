@@ -10,7 +10,7 @@ const LogOut = () => {
         <div>
             {user &&
                 <div className="login-form-container">
-                    <p>{user.name} currently logged in</p>
+                    <p>{user.name}</p>
                     <img className="logged-in" src={user.avatar_url} /><br/>
                     <Link to="/" ><button onClick={() =>  setUser("")} className="link-login" id="log-out-button">log out</button></Link>
                 </div>}
