@@ -5,7 +5,7 @@ NC News is a social news aggregation, web content rating and discussion website.
 
 
 ## Usage
-Visit NC News at: https://tranquil-dango-5844a8.netlify.app/. All articles can be viewed on the home page and users can navigate to a number of topics. Select an article to view the content, add a comment, view the comments and vote on the article.
+Visit NC News at: https://tranquil-dango-5844a8.netlify.app/. All articles can be viewed on the home page and users can navigate to a number of topics. Select an article to view the contents, including comments and votes. To add a comment, delete a comment and vote on an article, users must be logged in. To view this functionality, users can log in using one of the following usernames: grumpy19, cooljmessy, weegembump, tickle122 or happyamy2016.
 
 ## Requirements 
 - Node.js version 20.8.0 or above. For the latest version, visit: https://nodejs.org/en/
