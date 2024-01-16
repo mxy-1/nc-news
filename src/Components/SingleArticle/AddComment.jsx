@@ -30,9 +30,7 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
     }
 
     const handleClick = () => {
-        if (!user) {
-            navigate("/login")
-        }
+        if (!user) navigate("/login")
     }
 
     return (

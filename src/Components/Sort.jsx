@@ -14,6 +14,8 @@ const Sort = ({setSort, setOrder}) => {
                 handleChange(e)}>
                 <option value="created_at">date</option>
                 <option value="votes">votes</option>
+                <option value="author">author</option>
+                <option value="title">title</option>
             </select>
 
             <label id="order-label" htmlFor="order">order by:</label>
