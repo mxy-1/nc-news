@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import { postComment } from "../../utils/api";
 import { UserContext } from "../../UserContext";
+import { useNavigate } from "react-router-dom";
 
 const AddComment = ({ setPostingComment, article_id, comments, setComments }) => {
     const [inputBody, setInputBody] = useState("");
     const [error, setError] = useState(false)
     const {user} = useContext(UserContext)
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -27,19 +29,26 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
             })
     }
 
+    const handleClick = () => {
+        if (!user) {
+            navigate("/login")
+        }
+    }
+
     return (
         <div>
             <form onSubmit={e => handleSubmit(e)}>
                 <textarea
+                    disabled={!user}
                     name="comment"
                     id="comment"
-                    cols="46"
+                    cols="44"
                     rows="4"
-                    placeholder="comment..."
+                    placeholder="add a comment..."
                     value={inputBody}
                     onChange={e => setInputBody(e.target.value)} required >
                 </textarea><br />
-                <input type="submit" value="add comment" />
+                <input type="submit" value="add comment" onClick={handleClick}/>
             </form>
             <p className="error">*min 5 characters. {500 - inputBody.length} characters remaining.</p>
             {!user && <p className="error" >**user must be logged in to post a comment.</p>}
