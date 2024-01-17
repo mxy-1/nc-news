@@ -49,3 +49,9 @@ export const getUsers = () => {
     return api.get(`/users`)
     .then(res => res.data)
 }
+
+export const patchCommentVotes = (comment_id, num) => {
+    return api.patch(`/comments/${comment_id}`, {
+        inc_votes: num
+    })
+}
