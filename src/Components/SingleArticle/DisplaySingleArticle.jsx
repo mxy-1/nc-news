@@ -48,7 +48,7 @@ const DisplaySingleArticle = ({ article_id, article, setArticleVotes, articleVot
             <div className="votes-wrapper">
                 {voteError && <p>{voteError}</p>}
                 {!errorMessage && <img src={up} alt="up arrow" className="vote-button" onClick={handleClickUp}/>}
-                <p className="article-votes" id="single-article-votes"> {articleVotes} votes</p>
+                <p className="article-votes" id="single-article-votes"> {articleVotes}</p>
                 {!errorMessage && 
                 <img src={down} alt="down arrow" className="vote-button" onClick={handleClickDown}/>}
             </div>

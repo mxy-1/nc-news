@@ -6,8 +6,26 @@
     width: 1rem;
 }
 
-.vote-button:hover {
+.vote-button-comment:hover {
     scale: 1.1;
+}
+
+#delete-icon {
+    vertical-align: bottom;
+}
+
+.delete:hover{
+    cursor: pointer;
+}
+
+.delete{
+    border: 0;
+    font-size: 12px;
+}
+
+.delete-wrapper {
+    display: flex;
+    justify-content: end;
 }
 
 .comment-body-wrapper {
