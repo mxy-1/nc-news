@@ -6,7 +6,7 @@ import up from "../../assets/up-arrow.png"
 import down from "../../assets/down-arrow.png"
 import "./SingleComment.css"
 import { useNavigate } from "react-router-dom";
-
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const SingleComment = ({ comment, setComments, i, comments }) => {
     const { comment_id, votes, created_at, author, body, article_id } = comment
@@ -68,7 +68,7 @@ const SingleComment = ({ comment, setComments, i, comments }) => {
                 <p className="comment-author"><strong>{author}</strong><em>{convertDate(created_at)}</em></p>
                 <p className="comment-body">{body}</p>
                 {voteError && <p>{voteError}</p>}
-                {user.username === author && <button onClick={handleClick}>delete</button>}
+                {user.username === author && <div className="delete-wrapper"><button className="delete" onClick={handleClick}><RiDeleteBinLine size="14px" id="delete-icon"/>delete</button></div>}
             </div>
         </li>
     );

@@ -51,7 +51,7 @@ const SingleArticle = () => {
             </div>
 
             <div className="comments-wrapper">
-                {comment_count === 1 ? <h3>{comment_count} Comment</h3> : <h3>{comment_count} Comments</h3>}
+                {comment_count === 1 ? <h3>{comment_count} comment</h3> : <h3>{comment_count} comments</h3>}
                 {loadingComments && <><div className="loader"></div><p>loading comments...</p></>}
                {! errorMessage && <AddComment setPostingComment={setPostingComment} article_id={article_id} comments={comments} setComments={setComments} />}
                 {postingComment && <><div className="loader"></div><p>posting comment...</p></>}

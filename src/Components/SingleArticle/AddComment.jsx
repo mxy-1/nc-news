@@ -3,6 +3,7 @@ import { postComment } from "../../utils/api";
 import { UserContext } from "../../UserContext";
 import { useNavigate } from "react-router-dom";
 
+
 const AddComment = ({ setPostingComment, article_id, comments, setComments }) => {
     const [inputBody, setInputBody] = useState("");
     const [error, setError] = useState(false)
@@ -46,7 +47,7 @@ const AddComment = ({ setPostingComment, article_id, comments, setComments }) =>
                     value={inputBody}
                     onChange={e => setInputBody(e.target.value)} required >
                 </textarea><br />
-                <input type="submit" value="add comment" onClick={handleClick}/>
+                <input id="add-comment-button" type="submit" value="comment" onClick={handleClick}/>
             </form>
             <p className="error">*min 5 characters. {500 - inputBody.length} characters remaining.</p>
             {!user && <p className="error" >**user must be logged in to post a comment.</p>}
