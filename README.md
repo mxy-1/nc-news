@@ -1,7 +1,7 @@
 # NC News
 
 ## Description 
-NC News is a social news aggregation, web content rating and discussion website. It allows users to view, sort, rate, and comment on articles. The website was created using the available endpoints on News-API https://news-api-3trz.onrender.com/api. For more information about News-API, visit https://github.com/mxy-1/news-api/tree/main. 
+NC News is a social news aggregation, web content rating and discussion website. It allows users to view, sort, rate, and comment on articles. The website was created using the available endpoints on NC News API https://news-api-3trz.onrender.com/api. For more information about NC News API, visit https://github.com/mxy-1/news-api. 
 
 
 ## Usage
@@ -14,6 +14,6 @@ For any versions below the suggested requirements, features may not work as inte
 
 ## Getting started
 
-1. Clone the repository 
+1. Clone the repository ```git clone https://github.com/mxy-1/nc-news.git```
 2. Set up the project and install the relevant packages: ```npm install```
-3. ```npm run dev``` and click on the link to view the website
+3. ```npm run dev``` and open the link to view the website
